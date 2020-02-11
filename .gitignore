@@ -6,3 +6,4 @@ go
 zforth
 zforth.save
 .zforth.hist
+cscope.out
