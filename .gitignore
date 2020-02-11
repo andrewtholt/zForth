@@ -1,8 +1,9 @@
-go
 *.d
 *.o
 *.swp
 *.swo
+*.bin
+*.elf
 zforth
 zforth.save
 .zforth.hist
