@@ -64,6 +64,7 @@
 : unless  ' not , postpone if ; immediate
 : else    ' jmp , here 999 , swap here swap ! ; immediate
 : fi      here swap ! ; immediate
+: then    here swap ! ; immediate
 
 
 ( forth style 'do' and 'loop', including loop iterators 'i' and 'j' )

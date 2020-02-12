@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./src/linux/zforth forth/core.zf forth/dict.zf
+./src/linux/zforth forth/core.zf forth/dict.zf forth/util.zf $*

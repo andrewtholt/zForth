@@ -1,0 +1,12 @@
+
+: .s 
+    depth 0 = if
+        ." Empty" cr
+    else
+        depth 1 -  0 do
+            i . ." : " 
+            i pick . cr
+        loop
+    fi
+;
+
