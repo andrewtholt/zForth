@@ -8,7 +8,7 @@
 
 ( 'words' generates a list of all define words )
 
-: name dup @ 31 & swap next dup next rot tell @ ;
+: name dup @ 31 and swap next dup next rot tell @ ;
 : words latest @ begin name 32 emit dup 0 = until cr drop ;
 
 

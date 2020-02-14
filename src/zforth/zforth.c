@@ -42,6 +42,7 @@ typedef enum {
 	PRIM_EQUAL,   PRIM_SYS,       PRIM_PICK, PRIM_COMMA,   PRIM_KEY,      PRIM_LITS,
 	PRIM_LEN,     PRIM_AND,       PRIM_BYE,  PRIM_DEPTH,   PRIM_ZEQU,     PRIM_INC,
     PRIM_TWO_PLUS,PRIM_FOUR_PLUS, PRIM_DEC,  PRIM_TWO_MINUS, PRIM_FOUR_MINUS, 
+    PRIM_CELL,
 
 	PRIM_COUNT
 } zf_prim;
@@ -52,9 +53,10 @@ static const char prim_names[] =
 	_("pickr")   _("_immediate") _("@@")    _("!!")    _("swap")      _("rot")
 	_("jmp")     _("jmp0")       _("'")     _("_(")    _(">r")        _("r>")
 	_("=")       _("sys")        _("pick")  _(",,")    _("key")       _("lits")
-	_("##")      _("&")          _("bye")   _("depth") _("0=")        _("1+")
-    _("2+")      _("4+")          _("1-")   _("2-")    _("4-") ;
-
+	_("##")      _("and")          _("bye")   _("depth") _("0=")        _("1+")
+    _("2+")      _("4+")          _("1-")   _("2-")    _("4-") 
+    _("cell")
+    ;
 
 /* Stacks and dictionary memory */
 
@@ -737,6 +739,9 @@ static void do_prim(zf_prim op, const char *input)
             break;
         case PRIM_FOUR_MINUS:
             dstack[ (dsp-1) ] -= 4 ;
+            break;
+        case PRIM_CELL:
+            zf_push(sizeof(int));
             break;
 		default:
 			zf_abort(ZF_ABORT_INTERNAL_ERROR);
