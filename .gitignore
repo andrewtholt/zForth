@@ -8,4 +8,4 @@ zforth
 zforth.save
 .zforth.hist
 cscope.out
-.ddb_hisroty
+.gdb_history

@@ -555,7 +555,11 @@ static void do_prim(zf_prim op, const char *input)
 		case PRIM_EXIT:
 			ip = zf_popr();
 			break;
-		
+	    // 
+        // PRIM_LEN, _PEEL, _POKE all operate on a small memory arena.
+        // Not on general memory.
+        // The words @ and ! are then defined using these.
+        //
 		case PRIM_LEN:
 			len = zf_pop();
 			addr = zf_pop();
