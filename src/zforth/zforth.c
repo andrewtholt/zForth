@@ -85,7 +85,7 @@ static jmp_buf jmpbuf;
 #define TRACE     uservar[2]    /* trace enable flag */
 #define COMPILING uservar[3]    /* compiling flag */
 #define POSTPONE  uservar[4]    /* flag to indicate next imm word should be compiled */
-#define USERVAR_COUNT 5
+#define USERVAR_COUNT 10
 
 static const char uservar_names[] =
 	_("h")   _("latest") _("trace")  _("compiling")  _("_postpone");
@@ -555,11 +555,11 @@ static void do_prim(zf_prim op, const char *input)
 		case PRIM_EXIT:
 			ip = zf_popr();
 			break;
-	    // 
-        // PRIM_LEN, _PEEL, _POKE all operate on a small memory arena.
-        // Not on general memory.
-        // The words @ and ! are then defined using these.
-        //
+	    /* 
+            PRIM_LEN, _PEEL, _POKE all operate on a small memory arena.
+            Not on general memory.
+            The words @ and ! are then defined using these.
+        */
 		case PRIM_LEN:
 			len = zf_pop();
 			addr = zf_pop();
