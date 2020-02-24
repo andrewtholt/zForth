@@ -43,7 +43,7 @@ typedef enum {
 	PRIM_LEN,     PRIM_AND,       PRIM_BYE,  PRIM_DEPTH,   PRIM_ZEQU,     PRIM_INC,
     PRIM_TWO_PLUS,PRIM_FOUR_PLUS, PRIM_DEC,  PRIM_TWO_MINUS, PRIM_FOUR_MINUS, 
     PRIM_CELL,
-    PRIM_ALLOCATE, PRIM_MDUMP,
+    PRIM_ALLOCATE, PRIM_MDUMP, PRIM_FREE, PRIM_GET, PRIM_SET,
 
 	PRIM_COUNT
 } zf_prim;
@@ -57,7 +57,7 @@ static const char prim_names[] =
 	_("##")      _("and")          _("bye")   _("depth") _("0=")        _("1+")
     _("2+")      _("4+")          _("1-")   _("2-")    _("4-") 
     _("cell")
-    _("allocate") _("mdump")
+    _("allocate") _("mdump")    _("free")   _("get")   _("set")
     ;
 
 /* Stacks and dictionary memory */
@@ -789,6 +789,27 @@ static void do_prim(zf_prim op, const char *input)
 
                 mdump(ptr, len);
 
+            }
+            break;
+        case PRIM_FREE:
+            {
+                void *ptr = (void *) dstack[ (dsp-1) ];
+                free(ptr);
+                dstack[ (dsp-1) ] = 0;
+            }
+            break;
+        case PRIM_GET:
+            {
+                uint32_t *ptr = (uint32_t *) dstack[ (dsp-1) ];
+                dstack[ (dsp-1) ] = *ptr;
+            }
+            break;
+        case PRIM_SET:  // n addr --
+            {
+                uint32_t *ptr = (uint32_t *) dstack[ --dsp ];
+                uint32_t data = dstack[ --dsp];
+
+                *ptr = data;
             }
             break;
 		default:
