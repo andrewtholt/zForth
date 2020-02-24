@@ -11,4 +11,9 @@ X   SET         Write word to address.
     CSET        Write byte.
     WSET        Write 16 bits.
 
+    FILL        Write byte to area of memeory
+    ERASE       Zero area of memory
+
+X   CMOVE       Copy memory, one byte at a time.
+    MOVE        Copy 32 bit words.
 
