@@ -1,0 +1,14 @@
+
+
+Add words to access addresses outside the constrained space.
+    ALLOCATE    allocate and zero a chunk of memory
+    MDUMP       Dispay memory at address.
+    FREE        Release memory
+    GET         Read machine natural word size (e.g. 32 bit) from address
+    CGET        Read a byte.
+    WGET        Read 16 bits
+    PUT         Write word to address.
+    CPUT        Write byte.
+    WPUT        Write 16 bits.
+
+
