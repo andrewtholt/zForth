@@ -85,10 +85,27 @@ static jmp_buf jmpbuf;
 #define TRACE     uservar[2]    /* trace enable flag */
 #define COMPILING uservar[3]    /* compiling flag */
 #define POSTPONE  uservar[4]    /* flag to indicate next imm word should be compiled */
-#define USERVAR_COUNT 10
+
+#define USERVAR_COUNT 15
 
 static const char uservar_names[] =
-	_("h")   _("latest") _("trace")  _("compiling")  _("_postpone");
+	_("h")   _("latest") _("trace")  _("compiling")  _("_postpone") 
+    _("var0")
+    _("var1")
+    _("var2")
+    _("var3")
+    _("var4")
+    _("var5")
+    _("var6")
+    _("var7")
+    _("var8")
+    _("var9")
+    _("var10")
+    _("var11")
+    _("var12")
+    _("var13")
+    _("var14")
+    ;
 
 static zf_addr *uservar = (zf_addr *)dict;
 
