@@ -16,4 +16,6 @@ X   SET         Write word to address.
 
 X   CMOVE       Copy memory, one byte at a time.
     MOVE        Copy 32 bit words.
+                Copy bytes from arena to memory.
+                Copy bytes to arena from memory.
 
