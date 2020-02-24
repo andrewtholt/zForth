@@ -8,7 +8,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <getopt.h>
-#include <math.h>
+// #include <math.h>
 
 #ifdef USE_READLINE
 #include <readline/readline.h>
@@ -146,7 +146,7 @@ zf_input_state zf_host_sys(zf_syscall_id id, const char *input)
 			break;
 
 		case ZF_SYSCALL_USER + 1:
-			zf_push(sin(zf_pop()));
+//			zf_push(sin(zf_pop()));
 			break;
 
 		case ZF_SYSCALL_USER + 2:
@@ -188,7 +188,8 @@ void zf_host_trace(const char *fmt, va_list va)
 zf_cell zf_host_parse_num(const char *buf)
 {
 	zf_cell v;
-	int r = sscanf(buf, "%f", &v);
+//	int r = sscanf(buf, "%f", &v);
+	int r = sscanf(buf, "%d", &v);
 	if(r == 0) {
 		zf_abort(ZF_ABORT_NOT_A_WORD);
 	}
