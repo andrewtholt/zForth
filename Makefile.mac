@@ -1,0 +1,9 @@
+
+
+all:
+	make -C src/mac
+
+clean:
+	make -C src/mac clean
+	make -C src/linux clean
+	make -C src/atmega8 clean
