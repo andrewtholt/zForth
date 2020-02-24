@@ -43,6 +43,7 @@ typedef enum {
 	PRIM_LEN,     PRIM_AND,       PRIM_BYE,  PRIM_DEPTH,   PRIM_ZEQU,     PRIM_INC,
     PRIM_TWO_PLUS,PRIM_FOUR_PLUS, PRIM_DEC,  PRIM_TWO_MINUS, PRIM_FOUR_MINUS, 
     PRIM_CELL,
+    PRIM_ALLOCATE, PRIM_MDUMP,
 
 	PRIM_COUNT
 } zf_prim;
@@ -56,6 +57,7 @@ static const char prim_names[] =
 	_("##")      _("and")          _("bye")   _("depth") _("0=")        _("1+")
     _("2+")      _("4+")          _("1-")   _("2-")    _("4-") 
     _("cell")
+    _("allocate") _("mdump")
     ;
 
 /* Stacks and dictionary memory */
@@ -90,7 +92,7 @@ static jmp_buf jmpbuf;
 
 static const char uservar_names[] =
 	_("h")   _("latest") _("trace")  _("compiling")  _("_postpone") 
-    _("var0")
+    _("base")
     _("var1")
     _("var2")
     _("var3")
@@ -104,7 +106,6 @@ static const char uservar_names[] =
     _("var11")
     _("var12")
     _("var13")
-    _("var14")
     ;
 
 static zf_addr *uservar = (zf_addr *)dict;
@@ -763,6 +764,32 @@ static void do_prim(zf_prim op, const char *input)
             break;
         case PRIM_CELL:
             zf_push(sizeof(int));
+            break;
+        case PRIM_ALLOCATE:
+            {
+                uint32_t len = dstack[--dsp ];
+
+                void *ptr = malloc( len );
+
+                dstack[dsp++] = (int)ptr;
+
+                if( ptr != NULL ) {
+                    memset(ptr,0,len);
+                    dstack[dsp++] = 0;
+                } else {
+                    dstack[dsp++] = -1;
+                }
+
+            }
+            break;
+        case PRIM_MDUMP:
+            {
+                uint32_t len = dstack[ --dsp];
+                void *ptr = (void *) dstack[ --dsp ];
+
+                mdump(ptr, len);
+
+            }
             break;
 		default:
 			zf_abort(ZF_ABORT_INTERNAL_ERROR);

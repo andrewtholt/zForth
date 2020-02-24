@@ -1,6 +1,6 @@
 
 BIN	:= zforth
-SRC	:= main.c zforth.c
+SRC	:= main.c zforth.c mdump.c
 
 OBJS    := $(subst .c,.o, $(SRC))
 DEPS    := $(subst .c,.d, $(SRC))
@@ -12,7 +12,7 @@ CFLAGS	+= -I. -I../zforth
 # CFLAGS  += -Os -g -std=c89 -ansi -pedantic -MMD
 # CFLAGS  += -Os -g -ansi -pedantic -MMD
 CFLAGS  += -Os -g -MMD
-CFLAGS  += -Wall -Wextra -Werror -Wno-unused-parameter -Wno-clobbered -Wno-unused-result
+# CFLAGS  += -Wall -Wextra -Werror -Wno-unused-parameter -Wno-clobbered -Wno-unused-result
 LDFLAGS	+= -g 
 
 LIBS	+= -lm

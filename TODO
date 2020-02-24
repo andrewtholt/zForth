@@ -1,8 +1,8 @@
 
 
 Add words to access addresses outside the constrained space.
-    ALLOCATE    allocate and zero a chunk of memory
-    MDUMP       Dispay memory at address.
+X   ALLOCATE    allocate and zero a chunk of memory
+X   MDUMP       Dispay memory at address.
     FREE        Release memory
     GET         Read machine natural word size (e.g. 32 bit) from address
     CGET        Read a byte.

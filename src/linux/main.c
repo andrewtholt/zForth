@@ -246,7 +246,7 @@ int main(int argc, char **argv)
 
 	zf_init(trace);
 
-
+    
 	/* Load dict from disk if requested, otherwise bootstrap fort
 	 * dictionary */
 
@@ -263,6 +263,7 @@ int main(int argc, char **argv)
 		include(argv[i]);
 	}
 
+	zf_result rv = zf_eval("10 base !");
 
 	/* Interactive interpreter: read a line using readline library,
 	 * and pass to zf_eval() for evaluation*/
