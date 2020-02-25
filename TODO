@@ -5,10 +5,10 @@ X   ALLOCATE    allocate and zero a chunk of memory
 X   MDUMP       Dispay memory at address.
 X   FREE        Release memory
 X   GET         Read machine natural word size (e.g. 32 bit) from address
-    CGET        Read a byte.
+X   CGET        Read a byte.
     WGET        Read 16 bits
 X   SET         Write word to address.
-    CSET        Write byte.
+X   CSET        Write byte.
     WSET        Write 16 bits.
 
     FILL        Write byte to area of memeory
