@@ -3,7 +3,5 @@ To build for linux.
 
 ./build.sh
 
-mv nvramrc.h ./src/linux
-
 make
 
