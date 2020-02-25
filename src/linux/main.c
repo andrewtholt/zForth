@@ -17,6 +17,8 @@
 
 #include "zforth.h"
 
+#include "nvramrc.h"
+
 
 
 /*
@@ -102,7 +104,7 @@ static void load(const char *fname)
 	void *p = zf_dump(&len);
 	FILE *f = fopen(fname, "rb");
 	if(f) {
-		fread(p, 1, len, f);
+		(void)fread(p, 1, len, f);
 		fclose(f);
 	} else {
 		perror("read");
@@ -264,6 +266,12 @@ int main(int argc, char **argv)
 	}
 
 	zf_result rv = zf_eval("10 base !");
+
+    int lineCount = (sizeof(nvramrc)/ sizeof(const char *));
+
+    for( int i=0; i< lineCount; i++) {
+	    zf_result rv = zf_eval(nvramrc[i]);
+    }
 
 	/* Interactive interpreter: read a line using readline library,
 	 * and pass to zf_eval() for evaluation*/

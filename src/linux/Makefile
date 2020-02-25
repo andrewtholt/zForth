@@ -22,7 +22,7 @@ LIBS	+= -lreadline
 CFLAGS	+= -DUSE_READLINE
 endif
 
-$(BIN): $(OBJS)
+$(BIN): $(OBJS) nvramrc.h
 	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
 clean:

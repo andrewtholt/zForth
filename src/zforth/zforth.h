@@ -2,6 +2,7 @@
 #define zforth_h
 
 #include "zfconf.h"
+#include "mdump.h"
 
 /* Abort reasons */
 
