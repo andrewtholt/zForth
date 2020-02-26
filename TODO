@@ -19,5 +19,5 @@ X   CMOVE       Copy memory, one byte at a time.
                 Copy bytes from arena to memory.
                 Copy bytes to arena from memory.
 
-X   Build linux variant that does have file acess after startup.
+X   Build linux variant that does not have file acess after startup.
 
