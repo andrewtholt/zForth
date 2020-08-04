@@ -789,7 +789,7 @@ static void do_prim(zf_prim op, const char *input)
                 uint32_t len = dstack[ --dsp];
                 void *ptr = (void *) dstack[ --dsp ];
 
-                mdump(ptr, len);
+//                mdump(ptr, len);
 
             }
             break;

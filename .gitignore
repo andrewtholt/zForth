@@ -4,7 +4,6 @@
 *.swo
 *.bin
 *.elf
-zforth
 zforth.save
 .zforth.hist
 cscope.out
