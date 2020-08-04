@@ -1,6 +1,6 @@
 
 BIN	:= zforth
-SRC	:= main.c zforth.c mdump.c
+SRC	:= main.c zforth.c # mdump.c
 
 OBJS    := $(subst .c,.o, $(SRC))
 DEPS    := $(subst .c,.d, $(SRC))

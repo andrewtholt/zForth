@@ -241,11 +241,11 @@ int main(int argc, char **argv)
     for( int i=0; i< lineCount; i++) {
 	    zf_result rv = zf_eval(nvramrc[i]);
     }
-
-
+    /*
 	for(i=0; i<argc; i++) {
 		include(argv[i]);
 	}
+    */
 	/* Interactive interpreter: read a line using readline library,
 	 * and pass to zf_eval() for evaluation*/
 
