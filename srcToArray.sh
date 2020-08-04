@@ -19,7 +19,7 @@ while read -r LINE; do
 
         if [  ${#M} -gt 0 ]; then
 #            $ECHO -n "$M\\n"
-            $ECHO "\"$M\","
+    $ECHO "(char *)\"$M\","
         fi
 #        if [ "$L" = " \\" ]; then
 #            exit

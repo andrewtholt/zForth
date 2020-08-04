@@ -5,13 +5,14 @@ SRC	:= main.c zforth.c mdump.c
 OBJS    := $(subst .c,.o, $(SRC))
 DEPS    := $(subst .c,.d, $(SRC))
 
-CC	:= $(CROSS)gcc
+# CC	:= $(CROSS)gcc
+CC	:= $(CROSS)g++
 
 VPATH   := ../zforth
 CFLAGS	+= -I. -I../zforth
 # CFLAGS  += -Os -g -std=c89 -ansi -pedantic -MMD
 # CFLAGS  += -Os -g -ansi -pedantic -MMD
-CFLAGS  += -Os -g -MMD -m32
+CFLAGS  += -Os -g -MMD -m32 -fpermissive
 # CFLAGS  += -Wall -Wextra -Werror -Wno-unused-parameter -Wno-clobbered -Wno-unused-result
 LDFLAGS	+= -g 
 

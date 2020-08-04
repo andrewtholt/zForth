@@ -45,6 +45,7 @@ void mdump( void *mem, int len) {
             }
             strcat(lineBuffer,"\n");
 
+            printf("%s",lineBuffer);
 //            Log::debug(lineBuffer);
         }
     }

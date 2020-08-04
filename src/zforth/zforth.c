@@ -7,6 +7,7 @@
 #include <stdint.h>
 
 #include "zforth.h"
+#include "mdump.h"
 
 
 /* Flags and length encoded in words */
@@ -576,7 +577,7 @@ static void do_prim(zf_prim op, const char *input)
 			ip = zf_popr();
 			break;
 	    /* 
-            PRIM_LEN, _PEEL, _POKE all operate on a small memory arena.
+            PRIM_LEN, _PEEK, _POKE all operate on a small memory arena.
             Not on general memory.
             The words @ and ! are then defined using these.
         */
@@ -789,7 +790,7 @@ static void do_prim(zf_prim op, const char *input)
                 uint32_t len = dstack[ --dsp];
                 void *ptr = (void *) dstack[ --dsp ];
 
-//                mdump(ptr, len);
+                mdump(ptr, len);
 
             }
             break;
