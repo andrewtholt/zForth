@@ -11,7 +11,7 @@ VPATH   := ../zforth
 CFLAGS	+= -I. -I../zforth
 # CFLAGS  += -Os -g -std=c89 -ansi -pedantic -MMD
 # CFLAGS  += -Os -g -ansi -pedantic -MMD
-CFLAGS  += -Os -g -MMD
+CFLAGS  += -Os -g -MMD -m32
 # CFLAGS  += -Wall -Wextra -Werror -Wno-unused-parameter -Wno-clobbered -Wno-unused-result
 LDFLAGS	+= -g 
 
@@ -23,7 +23,7 @@ LIBS	+= -lm
 # endif
 
 $(BIN): $(OBJS) nvramrc.h
-	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
 clean:
 	rm -f $(BIN) $(OBJS) $(DEPS)
