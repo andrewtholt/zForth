@@ -8,7 +8,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <getopt.h>
-// #include <math.h>
 
 #ifdef USE_READLINE
 #include <readline/readline.h>
