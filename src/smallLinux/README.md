@@ -5,9 +5,15 @@ get
 set
 cget
 cset
+allocate
 
-Theese are required because the standard forth @ ! c@ c! operate in a sandbox for robustnes
 
-the above allow any memeory to be addressed, if invalid crash will ensue.
+These are required because the standard forth @ ! c@ c! operate in a sandbox for robustnes
+
+The above allow any valid memory to be addressed, if invalid crash will ensue.
+
+allot makes use of the arena to allocate memory.
+
+
 
 
